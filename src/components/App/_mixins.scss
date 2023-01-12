@@ -1,0 +1,118 @@
+@mixin container {
+  max-width: $maxWidth;
+	@media (max-width: $md1+px) {
+    padding: 0 32px;
+	}
+	@media (max-width: $md2+px) {
+    padding: 0 16px;
+	}
+}
+
+//styles=================
+
+@mixin logoStyle {
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 38 / 28 * 100%;
+  color: $white;
+}
+
+@mixin titlesStyles {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 49 / 36 * 100%;
+  color: $violet;
+
+  @media (max-width: 900px){
+    font-size: 30px;
+    line-height: 41 / 30 * 100%;
+  }
+}
+
+@mixin mediumTextSize {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 33 / 24 * 100%;
+  color: $black;
+}
+
+@mixin smallTextSize ($color) {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19.1 / 14 * 100%;
+  color: $color;
+}
+
+@mixin inputStyles {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 27 / 20 * 100%;
+  color: $black;
+}
+
+@mixin inputLabel {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 19 / 14 * 100%;
+  color: $black;
+}
+
+@mixin erroStyles {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 15 / 11 * 100%;
+  color: $red;
+}
+
+//styles=================
+
+
+//elements=================
+@mixin btn ($BTNcolor, $fontColor, $width) {
+  @if $BTNcolor == $white {
+    border: 2px solid $fontColor;
+  }
+  width: $width;
+  height: 44px;
+  @include inputStyles;
+  background-color: $BTNcolor;
+  color: $fontColor;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:disabled {
+    background-color: $grey;
+  }
+}
+
+@mixin btnChangerAmountInBasket {
+  margin-right: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: $white;
+  border: 1.5px solid $btnChangerInBasketBorder;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin inputField($width, $adaptWidth) {
+  padding: 8.5px 5px 8.5px 12px;
+  @include inputStyles;
+  width: $width;
+  border: 1px solid $violet;
+  border-radius: 2px;
+
+  @media (max-width: 900px){
+    width: $adaptWidth;
+  }
+}
+
+//elements=================

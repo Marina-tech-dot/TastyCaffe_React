@@ -1,0 +1,39 @@
+@import '../../App/styles.module.scss';
+
+.amount {
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    @include smallTextSize($grey);
+    margin-bottom: 4px;
+  }
+
+  & input {
+    padding: 1px 4px 1px 12px;
+    margin-right: 14px;
+    height: 44px;
+    width: 64px;
+    border: 1px solid $violet;
+    border-radius: 2px;
+    @include inputStyles;
+  }
+}
+
+::placeholder {
+  @include inputStyles;
+  opacity: 1;
+}
+
+.btn {
+  @include btn($violet, $white, 88px);
+
+  @media (max-width: 900px){
+    @include btn($violet, $white, 216px);  
+  }
+}
+
+.input_body {
+  display: flex;
+  justify-content: space-between;
+}

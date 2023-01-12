@@ -1,0 +1,9 @@
+@import '../../App/styles.module.scss';
+
+.card {
+  margin: 0 auto;
+  background-color: $white;
+  opacity: 0.99;
+  box-shadow: 0px 4px 24px rgba(33, 11, 69, 0.08);
+  border-radius: 40px;
+}

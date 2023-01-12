@@ -1,0 +1,63 @@
+@import '../../../App/styles.module.scss';
+
+.form {
+  &_title {
+    @include titlesStyles;
+    margin-bottom: 32px;
+  }
+
+  &_div > *:first-child {
+    @include inputLabel;
+    margin-bottom: 4px;
+  }
+
+  &_div input.invalid {
+    border: 1px solid $red;
+  }
+
+  &_house_flat_body {
+    display: flex;
+    justify-content: space-between;
+    width: 444px;
+
+    @media (max-width: 900px){
+      width: 280px;
+    }
+  }
+
+  &_input_standart {
+    @include inputField(444px, 280px);
+    margin-bottom: 16px;
+
+  }
+
+  &_input_small {
+    @include inputField(206px, 130px);
+    margin-bottom: 16px;
+  }
+
+  &_house_flat_body {
+    display: flex;
+  }
+
+  &_btn__body {
+    margin-top: 16px;
+    display: flex;
+    justify-content: right;
+  }
+
+  &_btn__white {
+    margin-right: 16px;
+    @include btn ($white, $violet, 140px);
+  }
+
+  &_btn__violet {
+    @include btn ($violet, $white, 140px);
+  }
+}
+
+.error {
+  @include erroStyles;
+  margin-top: -16px;
+  margin-bottom: 1px;
+}

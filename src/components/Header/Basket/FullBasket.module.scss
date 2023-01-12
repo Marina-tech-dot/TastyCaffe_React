@@ -1,0 +1,50 @@
+@import '../../App/styles.module.scss';
+
+.ul {
+  & > *:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  & > *:last-child {
+    margin-bottom: 24px;
+  }
+}
+
+.title {
+  @include titlesStyles;
+  margin-bottom: 32px;
+}
+
+
+.total_price {
+  padding-top: 24px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $dividerColor;
+
+  & *:first-child {
+    @include mediumTextSize;
+  }  
+
+  & *:nth-child(2) {
+    @include mediumTextSize;
+    color: $violet;
+  }
+}
+
+.btn {
+  &_body {
+    display: flex;
+    justify-content: right;
+  }
+
+  &_white {
+    margin-right: 16px;
+    @include btn ($white, $violet, 140px);
+  }
+
+  &_violet {
+    @include btn ($violet, $white, 140px);
+  }
+}

@@ -1,0 +1,33 @@
+@import '../../../App/styles.module.scss';
+
+.dish {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 900px){
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_title_price_body {
+    @media (max-width: 900px){
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title{
+    @include mediumTextSize;
+  }
+
+  &__description{
+    @include smallTextSize($black);
+  }
+
+  &__price{
+    @include mediumTextSize;
+    color: $violet;
+  }
+}

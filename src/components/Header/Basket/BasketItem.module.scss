@@ -1,0 +1,58 @@
+@import '../../App/styles.module.scss';
+
+.li {
+  margin-bottom: 10px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 900px){
+    flex-direction: column;
+  }
+}
+.title {
+  width: 340px;
+  margin-right: 24px;
+  @include mediumTextSize;
+
+  @media (max-width: 900px){
+    width: 219px;
+    margin: 0 0 16.5px 0;
+  }
+}
+
+.amount {
+  display: flex;
+
+  &_price_body {
+    display: flex;
+  }
+}
+
+.props__amount {
+  width: 30px;
+  margin-right: 16px;
+  font-weight: 500;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnChanger {
+  @include btnChangerAmountInBasket;
+}
+
+.price {
+  width: 120px;
+  text-align: right;
+  margin-left: 93px - 16px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;
+  color: $violet;
+
+  @media (max-width: 900px){
+    margin-left: 93px - 16px - 44px;
+  }
+}

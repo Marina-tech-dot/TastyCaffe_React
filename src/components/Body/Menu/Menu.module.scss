@@ -1,0 +1,45 @@
+@import '../../App/styles.module.scss';
+
+.menu {
+  width: 800px;
+  min-height: 200px;
+
+  @media (max-width: 900px){
+    width: 344px;
+  }
+
+  &__loading {
+    margin: 166px 0 132px;
+
+  @media (max-width: 900px){
+      margin: 24px 0 64px;
+  }
+  }
+
+  &__ul {
+    padding: 42px 64px 96px;
+    margin: 166px 0 132px;
+
+  @media (max-width: 900px){
+      margin: 24px 0 64px;
+  }
+
+    & > *:not(:last-child):not(:first-child) {
+    padding-bottom: 32px;
+    border-bottom: 1px $dividerColor solid;
+  }
+
+    & > *:not(:first-child):not(:nth-child(2)) {
+    padding-top: 32px;
+  }
+
+    @media (max-width: 900px){
+      padding: 24px 32px 72px; 
+    }
+  }
+
+  &__title {
+    @include titlesStyles;
+    margin-bottom: 50px;
+  }
+}

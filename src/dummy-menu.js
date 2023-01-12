@@ -1,0 +1,42 @@
+export const menuObj = [
+  {
+    id: 1,
+    category: "sushi",
+    title: "Futomaki",
+    description: "fresh and sweet",
+    price: 15,
+    amount: 1,
+  },
+  {
+    id: 2,
+    category: "salat",
+    title: "Cezar with salmon",
+    description: "it is really good",
+    price: 10,
+    amount: 1,
+  },
+  {
+    id: 3,
+    category: "fish",
+    title: "Salmon",
+    description: "very very",
+    price: 20,
+    amount: 1,
+  },
+  {
+    id: 4,
+    category: "soup",
+    title: "Fish with potatoes",
+    description: "you should try it",
+    price: 9,
+    amount: 1,
+  },
+  {
+    id: 5,
+    category: "juce",
+    title: "Apple",
+    description: "fresh",
+    price: 3,
+    amount: 1,
+  },
+];

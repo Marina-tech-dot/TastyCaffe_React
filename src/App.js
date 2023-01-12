@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './App.scss';
+import styles from './components/App/styles.module.scss';
+import { Header } from './components/Header/Header';
+import { Body } from './components/Body/Body';
+import { BasketContextProvider } from './components/context/basket-context/basket-context';
+import { Basket } from './components/Header/Basket/Basket';
+
 
 function App() {
+  const [isBasketOpen, setIsBasketOpen] = useState(false)
+
+  const openBasketHandler = () => {
+    setIsBasketOpen(true)
+  }
+
+  const closeBasketHandler = () => {
+    setIsBasketOpen(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BasketContextProvider>
+      <div className={styles.wrapper}>
+        <Header openBasket={openBasketHandler} />
+        <Body />
+        {isBasketOpen && <Basket closeBasket={closeBasketHandler} />}
+      </div>
+    </BasketContextProvider>
   );
 }
 

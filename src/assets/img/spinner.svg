@@ -1,0 +1,12 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="80" cy="80" r="80" fill="white"/>
+<path d="M145 80C145 115.899 115.899 145 80 145C44.1015 145 15 115.899 15 80C15 44.1015 44.1015 15 80 15C115.899 15 145 44.1015 145 80ZM24.75 80C24.75 110.514 49.4863 135.25 80 135.25C110.514 135.25 135.25 110.514 135.25 80C135.25 49.4863 110.514 24.75 80 24.75C49.4863 24.75 24.75 49.4863 24.75 80Z" fill="url(#paint0_angular_42_1481)"/>
+<ellipse cx="79.5" cy="140.122" rx="4.5" ry="4.88721" fill="#FE3B3B"/>
+<defs>
+<radialGradient id="paint0_angular_42_1481" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(80 80) rotate(90) scale(65)">
+<stop stop-color="#FE3434"/>
+<stop offset="0.916667" stop-color="#FE3434" stop-opacity="0"/>
+<stop offset="1" stop-color="#FE3434" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

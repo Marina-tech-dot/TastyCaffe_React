@@ -1,0 +1,41 @@
+@import '../../../App/styles.module.scss';
+
+.cancelation {
+  &_body {
+    padding: 26px 40px 48px;
+  }
+
+  &_title {
+    @include titlesStyles;
+    margin-bottom: 32px;
+  }
+
+  &_img_text_btn_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > *:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &_img {
+    margin: 0 auto;
+  }
+
+  &_text {
+    @include smallTextSize($black);
+    text-align: center;
+  }
+
+  &_button {
+    display: block;
+    margin: 0 auto;
+    @include btn ($violet, $white, 444px);
+
+    @media (max-width: 900px){
+      @include btn ($violet, $white, 280px)
+    }
+  }
+}

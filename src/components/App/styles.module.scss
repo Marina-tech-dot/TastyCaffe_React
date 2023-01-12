@@ -1,0 +1,24 @@
+@import "_mixins";
+@import "_vars";
+@import "_reset";
+
+.wrapper {
+  width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	max-width: $maxWidth;
+	margin: 0 auto;
+	@media (max-width: $md1) {
+		max-width: 836px;
+    padding: 0 32px;
+	}
+	@media (max-width: $md2) {
+		max-width: $minWidth;
+    padding: 0 16px;
+	}
+}

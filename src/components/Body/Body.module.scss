@@ -1,0 +1,40 @@
+@import '../App/styles.module.scss';
+
+.container {
+  @include container;
+  position: relative;
+  width: 100%;
+  min-height: 540px;
+  margin-top: 24px;
+
+  @media (max-width: 900px){
+      padding: 0px;
+      margin-top: 0px;
+      background-color: $background;
+      min-height: 100vh;
+    }
+}
+
+.background {
+  position: absolute;
+  top: 0px; 
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%);
+  background-image: url("../../assets/img/body__back.jpg");
+  background-size: 100%;
+  width: calc(100% - 64px);
+  height: 540px;
+  background-repeat: no-repeat;
+  background-position: center -170px;
+  z-index: -1;
+  border-radius: 20px;
+
+  @media (max-width: 1440px){
+      background-position: center;
+    }    
+
+    @media (max-width: 900px){
+      background-image: none;
+    }
+}
