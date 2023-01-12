@@ -9,6 +9,7 @@ export const Form = (props) => {
   const amountValue = useRef()
   
   useEffect(() => {
+    console.log(enteredValue)
     if (enteredValue === '0') {
       setIsInputEmpty(true);
     }
@@ -16,8 +17,10 @@ export const Form = (props) => {
 
   const isInputFilledHandler = (event) => {
     if (event.target.value.trim().length) {
-      setIsInputEmpty(false)
       setEnterdValue(event.target.value.trim());
+      if (event.target.value !== "0") {
+        setIsInputEmpty(false);
+      }
     }
   }
 
