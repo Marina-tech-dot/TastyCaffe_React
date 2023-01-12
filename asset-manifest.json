@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/TastyCaffe_React/static/css/main.03f040ab.css",
-    "main.js": "/TastyCaffe_React/static/js/main.f9bedf9c.js",
+    "main.js": "/TastyCaffe_React/static/js/main.03f27a6b.js",
     "static/media/body__back.jpg": "/TastyCaffe_React/static/media/body__back.0629748ea41b07ca5089.jpg",
     "static/media/Congrat.svg": "/TastyCaffe_React/static/media/Congrat.a83ea7a33eb1946d93b5c83fe8744479.svg",
     "static/media/cart.svg": "/TastyCaffe_React/static/media/cart.f975abf199837304afaa1451f126d8e0.svg",
     "index.html": "/TastyCaffe_React/index.html",
     "main.03f040ab.css.map": "/TastyCaffe_React/static/css/main.03f040ab.css.map",
-    "main.f9bedf9c.js.map": "/TastyCaffe_React/static/js/main.f9bedf9c.js.map"
+    "main.03f27a6b.js.map": "/TastyCaffe_React/static/js/main.03f27a6b.js.map"
   },
   "entrypoints": [
     "static/css/main.03f040ab.css",
-    "static/js/main.f9bedf9c.js"
+    "static/js/main.03f27a6b.js"
   ]
 }
