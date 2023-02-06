@@ -2,6 +2,7 @@ import React, {useContext, useState, useEffect} from 'react';
 import styles from './Header.module.scss' 
 import cart from "../../assets/img/cart.svg" 
 import { BasketContext } from '../context/basket-context/basket-context';
+import { NavLink } from 'react-router-dom';
 
 export const Header = (props) => {
   const cntx = useContext(BasketContext);
@@ -19,7 +20,8 @@ export const Header = (props) => {
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
         <div className={styles.header__logo}>Tasty Food</div>
-        <div
+        <NavLink
+          to="cart"
           className={`${styles.basket} ${
             isBasketFull && styles.cursor_pointer
           }`}
@@ -30,7 +32,7 @@ export const Header = (props) => {
           <div className={styles.basket__amount_circle}>
             <div className={styles.basket__amount}>{cntx.totalAmount}</div>
           </div>
-        </div>
+        </NavLink>
       </div>
     </header>
   );

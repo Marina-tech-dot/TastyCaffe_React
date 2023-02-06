@@ -19,9 +19,9 @@ export const useHTTP = () => {
           let responseData = await response.json();
           fn(responseData);
         } 
-
         setIsLoading(false);
       } else {
+        setIsLoading(false);
         throw new Error("Ups");
       }
     },

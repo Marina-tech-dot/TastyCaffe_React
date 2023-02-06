@@ -19,12 +19,12 @@ const ModalOverLay = (props) => {
 export const Modal = (props) => {
   const portalElement = document.querySelector("#overlay");
   return (
-    <React.Fragment>
+    <>
       {ReactDOM.createPortal(<Backdrop closeBasket={props.closeBasket}/>, portalElement)}
       {ReactDOM.createPortal(
         <ModalOverLay>{props.children}</ModalOverLay>,
         portalElement
       )}
-    </React.Fragment>
+    </>
   );
 }

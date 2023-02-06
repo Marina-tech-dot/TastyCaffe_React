@@ -23,7 +23,7 @@ export const Basket = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       {isOrdered && (
         <FullBasket
           startOrder={isOrderedHandler}
@@ -42,6 +42,6 @@ export const Basket = (props) => {
           order={completedOrder}
         ></CancellationInfo>
       )}
-    </React.Fragment>
+    </>
   );
 }
