@@ -1,0 +1,10 @@
+@import '../../App/styles.module.scss';
+
+.btn {
+  margin-right: 16px;
+  @include btn;
+  background-color: $white;
+  color: $violet;
+  border: 2px solid $violet;
+  width: 140px;
+}

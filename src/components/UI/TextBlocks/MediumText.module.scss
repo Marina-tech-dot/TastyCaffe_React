@@ -1,0 +1,11 @@
+@import '../../App/styles.module.scss';
+
+.text_black {
+  @include mediumTextSize;
+  color: $black;
+}
+
+.text_violet {
+  @include mediumTextSize;
+  color: $violet;
+}

@@ -1,6 +1,8 @@
 import React, {useState, useRef, useEffect} from "react";
 import styles from "./Form.module.scss";
-import { Input } from "../../UI/Input/Input";
+import { Input } from "../../../UI/Input/Input";
+import { SmallText } from "../../../UI/TextBlocks/SmallText";
+import { AddBTN } from "../../../UI/Buttons/AddBTN";
 
 export const Form = (props) => {
   const [isInputEmpty, setIsInputEmpty] = useState(true)
@@ -33,7 +35,7 @@ export const Form = (props) => {
 
   return (
     <form className={styles.amount}>
-      <p>Amount</p>
+      <SmallText color={'grey'} text={'Amount'} />
       <div className={styles.input_body}>
         <Input
           onChange={isInputFilledHandler}
@@ -47,13 +49,7 @@ export const Form = (props) => {
             placeholder: "0",
           }}
         />
-        <button
-          className={styles.btn}
-          onClick={amountTransmisser}
-          disabled={isInputEmpty}
-        >
-          Add
-        </button>
+        <AddBTN onclick={amountTransmisser} disabled={isInputEmpty}/>
       </div>
     </form>
   );

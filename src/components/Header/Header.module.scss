@@ -20,7 +20,22 @@
   }
 
   &__logo {
-    @include logoStyle
+    @include logoStyle;
+    cursor: pointer;
+  }
+
+  &__cartbody {
+    display: flex;
+
+    & > *:first-child {
+      margin-right: 16px;
+    }
+
+    & > *:nth-child(2) {
+      display: flex;
+      align-items: center;
+    }
+
   }
 }
 

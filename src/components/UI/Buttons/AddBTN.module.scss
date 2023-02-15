@@ -1,0 +1,12 @@
+@import '../../App/styles.module.scss';
+
+.btn {
+  @include btn;
+  background-color: $violet;
+  color: $white;
+  width: 88px;
+
+  @media (max-width: 900px){
+    width: 216px;
+  }
+}

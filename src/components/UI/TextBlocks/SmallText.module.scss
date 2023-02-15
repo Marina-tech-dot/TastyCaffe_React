@@ -1,0 +1,16 @@
+@import '../../App/styles.module.scss';
+
+.text_black {
+  @include smallTextSize;
+  color: $black;
+}
+
+.text_violet {
+  @include smallTextSize;
+  color: $violet;
+}
+
+.text_grey {
+  @include smallTextSize;
+  color: $grey;
+}

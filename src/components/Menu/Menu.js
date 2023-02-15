@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from "react";
 import styles from "./Menu.module.scss";
-import { CardContainer } from "../../UI/Card-container/Card-container";
+import { CardContainer } from "../UI/Card-container/Card-container";
 import { DishItem } from "./Dish-item/Dish-item";
-import { useHTTP } from "../../hooks/use-HTTP";
-import { Loading } from "../../UI/loadingBackDrop/LoadingBackdrop";
-import { menuObj } from "../../../dummy-menu";
-import { useNavigation } from "react-router-dom";
+import { useHTTP } from "../hooks/use-HTTP";
+// import { Loading } from "../../UI/loadingBackDrop/LoadingBackdrop";
+// import { menuObj } from "../../../dummy-menu";
+// import { useNavigation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Title } from "../UI/TextBlocks/Tilte";
+import '../../App.scss';
+
 
 export const Menu = ({ meals }) => {
   const { isLoading, sendRequest } = useHTTP();
@@ -37,6 +41,8 @@ export const Menu = ({ meals }) => {
   //   });
   // }, [sendRequest]);
 
+  // const location = useLocation()
+
   const menuList = meals.map((dish) => {
     return (
       <DishItem
@@ -52,18 +58,19 @@ export const Menu = ({ meals }) => {
   });
 
   const menu = (
-    <CardContainer name={styles.menu}>
-      <ul className={styles.menu__ul}>
-        <p className={styles.menu__title}>Would you like something to eat?</p>
-        {
-        // httpsError ? (
-        //   <p className={styles.menu__error}>{httpsError}</p>
-        // ):
-         (
-          menuList
-        )}
-      </ul>
-    </CardContainer>
+    <>
+      <CardContainer name={styles.menu}>
+        <ul className={styles.menu__ul}>
+          <Title text={'Would you like something to eat?'}/>
+          {
+            // httpsError ? (
+            //   <p className={styles.menu__error}>{httpsError}</p>
+            // ):
+            menuList
+          }
+        </ul>
+      </CardContainer>
+    </>
   );
 
   return (

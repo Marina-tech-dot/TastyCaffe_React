@@ -25,17 +25,17 @@
   }
 
   &_text {
-    @include smallTextSize($black);
+    // @include smallTextSize($black);
     text-align: center;
   }
 
   &_button {
     display: block;
     margin: 0 auto;
-    @include btn ($violet, $white, 444px);
+    // @include btn ($violet, $white, 444px);
 
     @media (max-width: 900px){
-      @include btn ($violet, $white, 280px)
+      // @include btn ($violet, $white, 280px)
     }
   }
 }

@@ -1,6 +1,6 @@
 import styles from "./Card-container.module.scss";
 
-export const CardContainer = (props) => {
-  const classes = `${styles.card} ` + props.name;
-    return <div className={classes}>{props.children}</div>;
+export const CardContainer = ({name, children}) => {
+  const classes = `${styles.card} ` + name;
+    return <div className={classes}>{children}</div>;
 }

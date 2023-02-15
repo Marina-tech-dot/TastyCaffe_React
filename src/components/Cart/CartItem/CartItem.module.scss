@@ -9,14 +9,8 @@
   @media (max-width: 900px){
     flex-direction: column;
   }
-}
-.title {
-  width: 340px;
-  margin-right: 24px;
-  @include mediumTextSize;
 
-  @media (max-width: 900px){
-    width: 219px;
+  & > *:nth-child(1) {
     margin: 0 0 16.5px 0;
   }
 }

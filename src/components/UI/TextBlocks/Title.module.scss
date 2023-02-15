@@ -1,0 +1,15 @@
+@import '../../App/styles.module.scss';
+
+.title {
+  &_black {
+    @include titlesStyles;
+    margin-bottom: 32px;
+    color: $black;
+  }
+
+  &_violet {
+    @include titlesStyles;
+    margin-bottom: 32px;
+    color: $violet;
+  }
+}

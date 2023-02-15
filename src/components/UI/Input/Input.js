@@ -3,9 +3,9 @@ import styles from "./Input.module.scss";
 
 export const Input = React.forwardRef((props, ref) => {
   return (
-    <div className={styles.input}>
+    <div>
       <label htmlFor={props.input.id}>{props.label}</label>
-      <input ref={ref} {...props.input} onChange={props.onChange}/>
+      <input className={styles.input}ref={ref} {...props.input} onChange={props.onChange}/>
     </div>
   );
 });

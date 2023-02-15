@@ -1,0 +1,19 @@
+.amount {
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    margin-bottom: 4px;
+  }
+
+  & input {
+    margin-right: 14px;
+    height: 44px;
+    width: 64px;
+  }
+}
+
+.input_body {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,4 +1,4 @@
-@import '../../../App/styles.module.scss';
+@import '../App/styles.module.scss';
 
 .form {
   &_title {
@@ -48,11 +48,11 @@
 
   &_btn__white {
     margin-right: 16px;
-    @include btn ($white, $violet, 140px);
+    // @include btn ($white, $violet, 140px);
   }
 
   &_btn__violet {
-    @include btn ($violet, $white, 140px);
+    // @include btn ($violet, $white, 140px);
   }
 }
 

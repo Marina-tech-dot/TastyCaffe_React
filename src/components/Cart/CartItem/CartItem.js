@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { BasketContext } from "../../context/basket-context/basket-context";
-import styles from "./BasketItem.module.scss"
+import styles from "./CartItem.module.scss"
+import { MediumText } from "../../UI/TextBlocks/MediumText";
 
-export const BasketItem = (props) => {
+export const CartItem = (props) => {
   const { addInBasket, removeFromBasket } = useContext(BasketContext);
 
   const addInBasketHandler = () => {
@@ -21,7 +22,7 @@ export const BasketItem = (props) => {
 
   return (
     <li className={styles.li}>
-      <div className={styles.title}>{props.title}</div>
+      <MediumText text={props.title}/>
       <div className={styles.amount_price_body}>
         <div className={styles.amount}>
           <button

@@ -1,7 +1,10 @@
 import React, {useContext} from "react";
 import styles from "./Dish-item.module.scss";
-import { Form } from "../../Form/Form";
-import { BasketContext } from "../../../context/basket-context/basket-context";
+import { Form } from "./Form/Form";
+import { BasketContext } from "../../context/basket-context/basket-context";
+import { MediumText } from "../../UI/TextBlocks/MediumText";
+import { SmallText } from "../../UI/TextBlocks/SmallText";
+
 
 export const DishItem = (props) => {
   const cntx = useContext(BasketContext)
@@ -14,10 +17,10 @@ export const DishItem = (props) => {
     <li className={styles.dish}>
       <div className={styles.dish_title_price_body}>
         <div className={styles.dish__title_body}>
-          <div className={styles.dish__title}>{props.title}</div>
-          <div className={styles.dish__description}>{props.description}</div>
+          <MediumText text={props.title} />
+          <SmallText text={props.description} />
         </div>
-        <div className={styles.dish__price}>{`$ ${props.price}`}</div>
+        <MediumText color={'violet'} text={`$ ${props.price}`} />
       </div>
       <div className={styles.dish__amount}>
         <Form order={orderHandler} />

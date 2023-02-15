@@ -1,0 +1,17 @@
+@import  '../App/styles.module.scss';
+
+.container {
+  @include container;
+  position: relative;
+  width: 100%;
+  min-height: 540px;
+  padding-bottom: 132px;
+
+  @media (max-width: 900px){
+      padding: 24px 0 68px;
+      // margin-top: 0px;
+      // margin: 0 auto;
+      background-color: $background;
+      min-height: 100%;
+    }
+}

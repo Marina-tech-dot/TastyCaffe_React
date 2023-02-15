@@ -1,33 +1,26 @@
-@import '../../App/styles.module.scss';
+@import '../App/styles.module.scss';
 
 .menu {
   width: 800px;
-  min-height: 200px;
-  // 
-  position: absolute;
-  top: 70px; 
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%);
 
   @media (max-width: 900px){
     width: 344px;
   }
 
-  &__loading {
-    margin: 166px 0 132px;
+  // &__loading {
+  //   margin: 166px 0 132px;
 
-  @media (max-width: 900px){
-      margin: 24px 0 64px;
-  }
-  }
+  // @media (max-width: 900px){
+  //     margin: 0px 0 64px;
+  // }
+  // }
 
   &__ul {
     padding: 42px 64px 96px;
-    margin: 24px 0 132px;
+    margin-top: -485px;
 
   @media (max-width: 900px){
-      margin: 24px 0 64px;
+      margin: 0px 0 64px;
   }
 
     & > *:not(:last-child):not(:first-child) {
@@ -44,12 +37,5 @@
     }
   }
 
-  &__title {
-    @include titlesStyles;
-    margin-bottom: 50px;
-  }
-
-  &_error {
-    
-  }
+  &_error {}
 }

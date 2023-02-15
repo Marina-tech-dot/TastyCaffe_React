@@ -1,11 +1,19 @@
 import { useState } from "react";
+import { Form, redirect, useActionData, useNavigate, useSubmit } from "react-router-dom";
 import styles from "./OrderForm.module.scss"
-import { useIsValidFormField } from "../../../hooks/use-isValidFormField";
-import { Modal } from "../../../UI/Modal/Modal";
+import { useIsValidFormField } from "../hooks/use-isValidFormField";
+import { Modal } from "../UI/Modal/Modal";
 import { useContext } from "react";
-import { BasketContext } from "../../../context/basket-context/basket-context";
+import { BasketContext } from "../context/basket-context/basket-context";
+import { useHTTP } from "../hooks/use-HTTP";
+import { CloseBTN } from "../UI/Buttons/CloseBTN";
+import { OrderBTN } from "../UI/Buttons/OrderBTN";
+import { Title } from "../UI/TextBlocks/Tilte";
 
-export const OrderForm = (props) => {
+export const OrderForm = () => {
+  const navigate = useNavigate()
+  const { sendRequest } = useHTTP();
+
   const [orderBTNClicked, setOrderBTNClicked] = useState(false)
 
   const {
@@ -70,40 +78,78 @@ export const OrderForm = (props) => {
     formIsValid = true;
   }
 
-  const {order, totalAmount, totalPrice} = useContext(BasketContext);
+  const {order, totalAmount, totalPrice} = useContext(BasketContext); 
+  const formDatas = useActionData()
 
-  const submitHandler = (event) => {
-    event.preventDefault();
+  // то, что было и работало....
+  // const submitHandler = (event) => {
+  //   event.preventDefault();
+  //   if (!formIsValid) {
+  //     setOrderBTNClicked(true)
+  //     return;
+  //   }
+
+  //   if (formIsValid) {
+  //     const submittedOrder = {
+  //       name,
+  //       street,
+  //       house,
+  //       flat,
+  //       email,
+  //       phone,
+  //       order,
+  //       totalAmount,
+  //       totalPrice,
+  //     };
+
+  //     const transformData = (data) => {
+  //     return {...data, time: new Date()}
+  //   }
+
+  //   const httpInfo = {
+  //     url: "https://tastycaffe-38e0d-default-rtdb.europe-west1.firebasedatabase.app/orders.json",
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json;charset=utf-8",
+  //     },
+  //     data: transformData(submittedOrder),
+  //   };
+
+  //   sendRequest(httpInfo);
+  //   navigate("/orderSubmitted");
+  //   }
+  // }
+
+  const navigateMainHandler = () => {
+    navigate('/')
+  }
+
+  const submitHandler = (data) => {
+    console.log('changing', formIsValid);
     if (!formIsValid) {
       setOrderBTNClicked(true)
       return;
     }
-
     if (formIsValid) {
-      const submittedOrder = {
-        name,
-        street,
-        house,
-        flat,
-        email,
-        phone,
-        order,
-        totalAmount,
-        totalPrice,
-      };
-      props.submitOrder(submittedOrder);
+      // console.log(data.target)
+      // data.method = 'post'
+      // data.action = action
+      // return data
+      // submit(null, { method: "post", action: 'action'});
     }
   }
 
   return (
-    <Modal>
-      <form onSubmit={submitHandler}>
-        <p className={styles.form_title}>Order details</p>
+    <Modal closeBasket={navigateMainHandler}>
+      {/* <Form method="post" onSubmit={submitHandler}> */}
+      <Form onSubmit={submitHandler}>
+        <Title text={'Order details'}/>
         <div className={styles.form_div}>
           <p>Name</p>
           <input
             type="text"
             value={name}
+            name="name"
             className={`${styles.form_input_standart} ${
               isNameInvalid && styles.invalid
             }`}
@@ -117,6 +163,7 @@ export const OrderForm = (props) => {
           <input
             type="text"
             value={street}
+            name="street"
             className={`${styles.form_input_standart} ${
               isStreetInvalid && styles.invalid
             }`}
@@ -132,6 +179,7 @@ export const OrderForm = (props) => {
               type="number"
               min="1"
               value={house}
+              name="house"
               className={`${styles.form_input_small} ${
                 isHouseInvalid && styles.invalid
               }`}
@@ -146,6 +194,7 @@ export const OrderForm = (props) => {
               type="number"
               min="1"
               value={flat}
+              name="flat"
               className={`${styles.form_input_small} ${
                 isFlatInvalid && styles.invalid
               }`}
@@ -160,6 +209,7 @@ export const OrderForm = (props) => {
           <input
             type="email"
             value={email}
+            name="email"
             className={`${styles.form_input_standart} ${
               isEmailInvalid && styles.invalid
             }`}
@@ -173,6 +223,7 @@ export const OrderForm = (props) => {
           <input
             type="phone"
             value={phone}
+            name="phone"
             className={`${styles.form_input_standart} ${
               isPhoneInvalid && styles.invalid
             }`}
@@ -182,18 +233,56 @@ export const OrderForm = (props) => {
           {isPhoneInvalid && <p className={styles.error}>{errorInPhone}</p>}
         </div>
         <div className={styles.form_btn__body}>
-          <button
+          <input
+            type="hidden"
+            name="order"
+            value={JSON.stringify(order)}
+          ></input>
+          <input type="hidden" name="totalAmount" value={totalAmount}></input>
+          <input type="hidden" name="totalPrice" value={totalPrice}></input>
+          {/* <button
             className={styles.form_btn__white}
-            onClick={props.closeBasket}
+            onClick={navigateMainHandler}
           >
             Close
           </button>
-          {/* <button className={styles.form_btn__violet} disabled={!formIsValid}> */}
-          <button className={styles.form_btn__violet}>
-            Order
-          </button>
+          <button className={styles.form_btn__violet}>Order</button> */}
+          <CloseBTN onclick={navigateMainHandler} />
+          <OrderBTN />
         </div>
-      </form>
+      </Form>
     </Modal>
   );
+}
+
+export const action = async({request, params}) => {
+  console.log('!')
+  const data = await request.formData();
+
+  const eventData = {
+    name: data.get("name"),
+    street: data.get("street"),
+    house: data.get("house"),
+    flat: data.get("flat"),
+    email: data.get("email"),
+    phone: data.get("phone"),
+    order: JSON.parse(data.get("order")),
+    totalAmount: data.get("totalAmount"),
+    totalPrice: data.get("totalPrice"),
+  };
+
+  console.log(eventData)
+
+  let url = "https://tastycaffe-38e0d-default-rtdb.europe-west1.firebasedatabase.app/orders.json";
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(eventData),
+  });
+
+  if (!response.ok) {
+    console.log('Problem with form order')
+  }
+  return response;
 }

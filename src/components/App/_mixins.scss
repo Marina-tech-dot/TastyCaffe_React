@@ -36,11 +36,10 @@
   color: $black;
 }
 
-@mixin smallTextSize ($color) {
+@mixin smallTextSize {
   font-size: 14px;
   font-weight: 600;
   line-height: 19.1 / 14 * 100%;
-  color: $color;
 }
 
 @mixin inputStyles {
@@ -68,15 +67,15 @@
 
 
 //elements=================
-@mixin btn ($BTNcolor, $fontColor, $width) {
-  @if $BTNcolor == $white {
-    border: 2px solid $fontColor;
-  }
-  width: $width;
+@mixin btn  {
+  // @if $BTNcolor == $white {
+  //   border: 2px solid $fontColor;
+  // }
+  // width: $width;
   height: 44px;
   @include inputStyles;
-  background-color: $BTNcolor;
-  color: $fontColor;
+  // background-color: $BTNcolor;
+  // color: $fontColor;
   border-radius: 4px;
   display: flex;
   justify-content: center;
